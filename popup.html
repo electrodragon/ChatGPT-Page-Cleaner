@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --emerald-primary: #10b981;
+      --emerald-light: #34d399;
+      --bg-gradient: linear-gradient(145deg, #1a1a1a, #000000);
+    }
+
+    body {
+      width: 200px;
+      height: 200px;
+      margin: 0;
+      background: var(--bg-gradient);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Counter Display */
+    .display-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #count-display {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: white;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+      display: block;
+      line-height: 1;
+    }
+
+    /* Counter Buttons Row */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    .counter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      border-radius: 4px;
+      padding: 8px 0;
+      font-size: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .counter-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border-color: var(--emerald-primary);
+    }
+
+    .counter-btn:active {
+      transform: scale(0.9);
+    }
+
+    /* The Main Action Button */
+    #optimize-btn {
+      width: 100%;
+      background: linear-gradient(to bottom right, var(--emerald-primary), #059669);
+      color: #064e3b;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    #optimize-btn:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.4);
+      transform: translateY(-1px);
+    }
+
+    #optimize-btn:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="display-container">
+    <span id="count-display">1</span>
+  </div>
+
+  <div class="controls-grid">
+    <button class="counter-btn" id="dec10">--</button>
+    <button class="counter-btn" id="dec1">-</button>
+    <button class="counter-btn" id="inc1">+</button>
+    <button class="counter-btn" id="inc10">++</button>
+  </div>
+
+  <button id="optimize-btn">Optimize</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
