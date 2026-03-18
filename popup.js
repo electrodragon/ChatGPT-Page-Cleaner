@@ -10,7 +10,7 @@ async function initializeCount() {
     func: () => {
       // Logic to count articles on the page
       const presentation = document.querySelectorAll('div[role="presentation"]')[0];
-      return presentation ? presentation.querySelectorAll('article').length : 1;
+      return presentation ? presentation.querySelectorAll('section').length : 1;
     },
   }, (results) => {
     if (results && results[0].result !== undefined) {
@@ -59,14 +59,14 @@ async function runOptimization(currentCount) {
   if (!presentation) return;
 
   // Initial check to see how many we have
-  const initialArticles = presentation.querySelectorAll('article');
+  const initialArticles = presentation.querySelectorAll('section');
   const len = initialArticles.length;
 
   // Helper function for the 100ms delay
   const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
   if (currentCount === 1) {
-    const firstArticle = presentation.querySelector('article');
+    const firstArticle = presentation.querySelector('section');
     if (firstArticle) firstArticle.remove();
   } 
   else if (currentCount > 1 && len > 2) {
@@ -75,8 +75,8 @@ async function runOptimization(currentCount) {
     let evenLimit = Math.floor(limit / 2) * 2;
 
     for (let i = 0; i < evenLimit; i++) {
-      // Always select the current "first" article found in the presentation
-      const target = presentation.querySelector('article');
+      // Always select the current "first" section found in the presentation
+      const target = presentation.querySelector('section');
       
       if (target) {
         target.remove();
